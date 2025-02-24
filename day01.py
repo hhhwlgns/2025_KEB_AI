@@ -1,6 +1,5 @@
-#from statistics import LinearRegression
-from sklearn.linear_model import LinearRegression # 선형 회귀 모델
-from sklearn.neighbors import KNeighborsRegressor # 최근접 이웃 회귀 모델
+# from sklearn.linear_model import LinearRegression # 선형 회귀 모델
+import jhlearn as jh
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -15,23 +14,13 @@ plt.axis([23500, 62500, 4, 9]) # x는 23500에서 62500까지 y는 4에서 9까�
 plt.show()
 
 # 선형 회귀 모델을 선택 1
-model1 = LinearRegression()
+model1 = jh.LinearRegression()
 
 # 훈련하기 1
 model1.fit(X,y)
 
 # 키프로스에 대해 예측을 만들기 1
-X_new1 = [[37655.2]] # 2020년 키프로스 1인당 GDP
+X_new1 = [[31721.3]] # 2020년 키프로스 1인당 GDP
 print(model1.predict(X_new1)) # y값 예측
-
-# 최근접 이웃 회귀 모델을 선택 2
-model2 = KNeighborsRegressor(n_neighbors=3) # 가장 가까운 3개 선택 후 평균을 구함
-
-# 훈련하기 2
-model2.fit(X, y)
-
-# 키프로스에 대해 예측 만들기 2
-X_new2 = [[37655.2]] # 2020년 키프로스 1인당 GDP
-print(model2.predict(X_new2)) # y값 예측
-
+# 5.90
 
