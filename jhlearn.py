@@ -15,10 +15,10 @@ class KNeighborsRegressor:
         between = {}
 
         for i in range (len(self.GDP_list)):
-            distance = abs(self.GDP_list[i] - X)
+            distance = float(abs(self.GDP_list[i] - X))
             between.update({distance : self.life_list[i]})
         sorted_between = dict(sorted(between.items()))
-        sorted_between_list = sorted_between.values()
+        sorted_between_list = list(sorted_between.values())
         small_between_y = sorted_between_list[:self.n_neighbors]
 
 
