@@ -1,5 +1,30 @@
 import numpy as np
 
+class KNeighborsRegressor:
+    def __init__(self, n_neighbors=5):
+        self.n_neighbors = n_neighbors
+        self.GDP_list = []
+        self.life_list = []
+
+    def fit(self, X, y):
+        self.GDP_list = X
+        self.life_list = y
+
+
+    def predict(self, X):
+        between = {}
+
+        for i in range (len(self.GDP_list)):
+            distance = abs(self.GDP_list[i] - X)
+            between.update({distance : self.life_list[i]})
+        sorted_between = dict(sorted(between.items()))
+        sorted_between_list = sorted_between.values()
+        small_between_y = sorted_between_list[:self.n_neighbors]
+
+
+        return sum(small_between_y) / self.n_neighbors
+
+
 class LinearRegression:
     def __init__(self):
         self.slope = None
